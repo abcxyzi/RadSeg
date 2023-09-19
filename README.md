@@ -1,6 +1,6 @@
-# Radar Activity Segmentation Dataset (RadSeg)
+# Radar Segmentation Dataset (RadSeg)
 
-RadSeg is a synthetic radar dataset designed for building semantic segmentation models for radar activity recognition. Unlike existing radio classification datasets that only provide signal-wise annotations for short and isolated IQ sequences, RadSeg provides sample-wise annotations for interleaved radar pulse activities that extend across an extended time horizon. This makes RadSeg the first annotated public dataset of its kind for radar activity recognition. This dataset is released to the public under the MIT License. The associated conference paper (currently under review) can be previewed here: https://arxiv.org/abs/2306.13105
+RadSeg is a synthetic radar dataset designed for building semantic segmentation models for radar activity recognition. Unlike existing radio classification datasets that only provide signal-wise annotations for short and isolated IQ sequences, RadSeg provides sample-wise annotations for interleaved radar pulse activities that extend across a long time horizon. This makes RadSeg the first annotated public dataset of its kind for radar activity recognition. This dataset is released to the public under the MIT License.
 
 > Huang, Zi, Akila Pemasiri, Simon Denman, Clinton Fookes, and Terrence Martin. "Multi-stage Learning for Radar Pulse Activity Segmenation" In Proceedings of the 2024 IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2024) (under review).
 
@@ -24,7 +24,7 @@ Additional dataset characteristics:
 - Each radar signal contains 32,768 complex, baseband IQ samples.
 - Annotations are provided as channel-wise binary masks where each channel corresponds to a signal type.
 
-Please refer to the conference paper for further details on RadSeg.
+Please refer to the associated conference paper (TBA) for further details on RadSeg.
 
 ## Download Links
 
@@ -50,7 +50,7 @@ The RadSeg datasets can be downloaded from the following links:
 
 ## Citation
 
-RadSeg is published (under review) together with the conference paper titled [Multi-stage Learning for Radar Pulse Activity Segmenation](https://arxiv.org/abs/2306.13105) at the 2024 IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2023). Please cite both the dataset and the conference paper if you find them helpful for your research.
+Please cite both the dataset and the conference paper (TBA) if you find them helpful for your research.
 
 ```latex
 @inproceedings{huang2024radseg,
