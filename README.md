@@ -2,7 +2,10 @@
 
 RadSeg is a synthetic radar dataset designed for building semantic segmentation models for radar activity recognition. Unlike existing radio classification datasets that only provide signal-wise annotations for short and isolated IQ sequences, RadSeg provides sample-wise annotations for interleaved radar pulse activities that extend across a long time horizon. This makes RadSeg the first annotated public dataset of its kind for radar activity recognition. This dataset is released to the public under the MIT License.
 
-> Huang, Zi, Akila Pemasiri, Simon Denman, Clinton Fookes, and Terrence Martin. "Multi-stage Learning for Radar Pulse Activity Segmenation" In Proceedings of the 2024 IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2024) (under review).
+You can access the conference paper here: [https://arxiv.org/abs/2312.09489](https://arxiv.org/abs/2312.09489)
+
+> Z. Huang, A. Pemasiri, S. Denman, C. Fookes and T. Martin, "Multi-Stage Learning for Radar Pulse Activity Segmentation," ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Seoul, Korea, Republic of, 2024, pp. 7340-7344, doi: 10.1109/ICASSP48485.2024.10445810.
+keywords: {Radar;Speech recognition;Radar countermeasures;Radio communication countermeasures;Task analysis;Speech processing;Signal to noise ratio;Multi-stage learning;activity segmentation;radio signal recognition;deinterleaving;radar dataset},
 
 ## Dataset Details
 
@@ -50,13 +53,15 @@ The RadSeg datasets can be downloaded from the following links:
 
 ## Citation
 
-Please cite both the dataset and the conference paper (TBA) if you find them helpful for your research.
+The RadSeg dataset is published together with the conference paper titled [Multi-stage Learning for Radar Pulse Activity Segmentation](https://arxiv.org/abs/2312.09489) at the 2024 IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2024). Please cite both the dataset and the conference paper if you find them helpful for your research.
 
 ```latex
-@inproceedings{huang2024radseg,
-  title={Multi-stage Learning for Radar Pulse Activity Segmenation},
+@inproceedings{huang2024multi,
+  title={Multi-Stage Learning for Radar Pulse Activity Segmentation},
   author={Huang, Zi and Pemasiri, Akila and Denman, Simon and Fookes, Clinton and Martin, Terrence},
-  booktitle={Proceedings of the 2024 IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2024) (under review)},
+  booktitle={ICASSP 2024-2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={7340--7344},
   year={2024},
+  organization={IEEE}
 }
 ```
