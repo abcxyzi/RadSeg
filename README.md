@@ -130,7 +130,7 @@ The official RadSeg dataset can be downloaded from the [QUT Research Data Reposi
 To extract and combine multiple parts of the dataset, for example:
 
 ```bash
-# We want to combine these parts into a single file, e.g., radchar-medium.h5
+# We want to combine these parts into a single file
 radseg-iq.test.tar.gz.001
 radseg-iq.test.tar.gz.002
 ```
