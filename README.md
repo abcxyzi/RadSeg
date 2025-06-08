@@ -111,9 +111,9 @@ The official RadSeg dataset can be downloaded from the [QUT Research Data Reposi
 
 ### Raw IQ Data
 
-- `RadSeg-IQ-Train` - approx. file size of 29.3 GB
-- `RadSeg-IQ-Validation` - approx. file size of 4.9 GB
-- `RadSeg-IQ-Test` - approx. file size of 4.9 GB
+- `RadSeg-IQ-Train` - approx. file size of 29.3 GB (8 parts)
+- `RadSeg-IQ-Validation` - approx. file size of 4.9 GB (2 parts)
+- `RadSeg-IQ-Test` - approx. file size of 4.9 GB (2 parts)
 
 ### Segmentation Masks (Channel-wise Annotations)
 
