@@ -107,25 +107,43 @@ val_set, test_set = \
 
 ## Download Links
 
-The RadSeg datasets can be downloaded from the following links:
+The official RadSeg dataset can be downloaded from the [QUT Research Data Repository](https://data.researchdatafinder.qut.edu.au/dataset/radseg). The dataset contains the following parts:
 
 ### Raw IQ Data
 
-- [`RadSeg-IQ-Train`](https://radseg.s3.amazonaws.com/train/radseg_iq.hdf5) - approx. file size of 29.3 GB
-- [`RadSeg-IQ-Validation`](https://radseg.s3.amazonaws.com/validation/radseg_iq.hdf5) - approx. file size of 4.9 GB
-- [`RadSeg-IQ-Test`](https://radseg.s3.amazonaws.com/test/radseg_iq.hdf5) - approx. file size of 4.9 GB
+- `RadSeg-IQ-Train` - approx. file size of 29.3 GB
+- `RadSeg-IQ-Validation` - approx. file size of 4.9 GB
+- `RadSeg-IQ-Test` - approx. file size of 4.9 GB
 
 ### Segmentation Masks (Channel-wise Annotations)
 
-- [`RadSeg-Masks-Train`](https://radseg.s3.amazonaws.com/train/radseg_labels.hdf5) - approx. file size of 87.9 GB
-- [`RadSeg-Masks-Validation`](https://radseg.s3.amazonaws.com/validation/radseg_labels.hdf5) - approx. file size of 14.6 GB
-- [`RadSeg-Masks-Test`](https://radseg.s3.amazonaws.com/test/radseg_labels.hdf5) - approx. file size of 14.6 GB
+- `RadSeg-Masks-Train` - approx. file size of 87.9 GB
+- `RadSeg-Masks-Validation` - approx. file size of 14.6 GB
+- `RadSeg-Masks-Test` - approx. file size of 14.6 GB
 
 ### SNR Labels
 
-- [`RadSeg-SNR-Train`](https://radseg.s3.amazonaws.com/train/radseg_snrs.hdf5) - approx. file size of 470.8 KB
-- [`RadSeg-SNR-Validation`](https://radseg.s3.amazonaws.com/validation/radseg_snrs.hdf5) - approx. file size of 80.1 KB
-- [`RadSeg-SNR-Test`](https://radseg.s3.amazonaws.com/test/radseg_snrs.hdf5) - approx. file size of 80.1 KB
+- `RadSeg-SNR-Train` - approx. file size of 470.8 KB
+- `RadSeg-SNR-Validation` - approx. file size of 80.1 KB
+- `RadSeg-SNR-Test` - approx. file size of 80.1 KB
+
+To extract and combine multiple parts of the dataset, for example:
+
+```bash
+# We want to combine these parts into a single file, e.g., radchar-medium.h5
+radseg-iq.test.tar.gz.001
+radseg-iq.test.tar.gz.002
+```
+
+Run the following commands once the individual parts have been downloaded to a local directory:
+
+```bash
+# Combine the individual parts into a single .tar.gz archive
+cat radseg-iq.test.tar.gz.* > radseg-iq.test.tar.gz
+
+# Unpack the .tar.gz archive to retrieve the dataset
+tar -xzf radseg-iq.test.tar.gz
+```
 
 ## Citation
 
