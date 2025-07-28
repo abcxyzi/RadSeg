@@ -1,3 +1,5 @@
+[![arXiv](https://img.shields.io/badge/arXiv-2501.10407-b31b1b.svg)](https://arxiv.org/abs/2312.09489) [![Kaggle](https://img.shields.io/badge/Kaggle-RadSeg-blue?logo=kaggle)](https://www.kaggle.com/datasets/abcxyzi/radseg-icassp-2024) [![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 # Radar Segmentation Dataset (RadSeg)
 
 RadSeg is a synthetic radar dataset designed for building semantic segmentation models for radar activity recognition. Unlike existing radio classification datasets that only provide signal-wise annotations for short and isolated IQ sequences, RadSeg provides sample-wise annotations for interleaved radar pulse activities that extend across a long time horizon. This makes RadSeg the first annotated public dataset of its kind for radar activity recognition. This dataset is released to the public under the MIT License.
@@ -7,6 +9,14 @@ You can access the arXiv paper 📄 here: [https://arxiv.org/abs/2312.09489](htt
 You can access the official paper 📄 here: [https://ieeexplore.ieee.org/document/10445810](https://ieeexplore.ieee.org/document/10445810)
 
 > Z. Huang, A. Pemasiri, S. Denman, C. Fookes and T. Martin, "Multi-Stage Learning for Radar Pulse Activity Segmentation," ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Seoul, Korea, Republic of, 2024, pp. 7340-7344, doi: 10.1109/ICASSP48485.2024.10445810.
+
+## Quick Links
+
+- [Dataset Details](#dataset-details)
+- [Dataloader Example](#radseg-dataloader)
+- [Download Links](#download-links)
+- [Extracting Dataset Parts](#extracting-dataset-parts)
+- [Citation](#citation)
 
 ## Dataset Details
 
@@ -107,13 +117,13 @@ val_set, test_set = \
 
 ## Download Links
 
-The official RadSeg dataset can be downloaded from the [QUT Research Data Repository](https://data.researchdatafinder.qut.edu.au/dataset/radseg). The dataset contains the following parts:
+The official RadSeg dataset can be downloaded from [Kaggle](https://www.kaggle.com/datasets/abcxyzi/radseg-icassp-2024). The total size of the combined datasets is approximately `156 GB`. RadSeg contains the following parts:
 
 ### Raw IQ Data
 
-- `RadSeg-IQ-Train` - approx. file size of 29.3 GB (8 parts)
-- `RadSeg-IQ-Validation` - approx. file size of 4.9 GB (2 parts)
-- `RadSeg-IQ-Test` - approx. file size of 4.9 GB (2 parts)
+- `RadSeg-IQ-Train` - approx. file size of 29.3 GB
+- `RadSeg-IQ-Validation` - approx. file size of 4.9 GB
+- `RadSeg-IQ-Test` - approx. file size of 4.9 GB
 
 ### Segmentation Masks (Channel-wise Annotations)
 
@@ -127,52 +137,60 @@ The official RadSeg dataset can be downloaded from the [QUT Research Data Reposi
 - `RadSeg-SNR-Validation` - approx. file size of 80.1 KB
 - `RadSeg-SNR-Test` - approx. file size of 80.1 KB
 
+### Downloaded Files
+
+Note, due to its large file size, RadSeg has been compressed and split into multiple parts:
+
+- `RadSeg_Train` contains 10 `RadSegTrain.tar.part-*` files
+- `RadSeg_Val` contains 5 `RadSegVal.tar.part-*` files
+- `RadSeg_Test` contains 5 `RadSegTest.tar.part-*` files
+
+The train, validation, and test sets each contain three `HDF5` files:
+
+1. `radseg_iq.hdf5` contains the raw I/Q data
+2. `radseg_labels.hdf5` contains the segmentation masks
+3. `radseg_snrs.hdf5` contains the SNR labels 
+
+## Extracting Dataset Parts
+
+> There should be a total of 20 downloadable `tar` files. These files will need to be extracted and re-combined to obtain the original datasets.
+
 To extract and combine multiple parts of the dataset, for example:
 
 ```bash
-# We want to combine these parts into a single file
-radseg-iq.test.tar.gz.001
-radseg-iq.test.tar.gz.002
+# We want to re-combine these parts into a single "RadSegTest.tar" file
+RadSegTest.tar.part-aa
+RadSegTest.tar.part-ab
+RadSegTest.tar.part-ac
+RadSegTest.tar.part-ad
+RadSegTest.tar.part-ae
 ```
 
-Run the following commands once the individual parts have been downloaded to a local directory:
+Download the individual parts to a local directory, then run the following commands in this order:
 
 ```bash
+# Go to RadSeg_Test
+cd ./RadSeg_Test
+
 # Combine the individual parts into a single .tar.gz archive
-cat radseg-iq.test.tar.gz.* > radseg-iq.test.tar.gz
+cat RadSegTest.tar.part-* > RadSegTest.tar.gz
 
 # Unpack the .tar.gz archive to retrieve the dataset
-tar -xzf radseg-iq.test.tar.gz
+tar -xzf RadSegTest.tar.gz
 ```
 
 ## Citation
 
-The RadSeg dataset is published together with our paper [Multi-stage Learning for Radar Pulse Activity Segmentation](https://arxiv.org/abs/2312.09489) at the 2024 IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2024). 
-
 💡 Please cite both the dataset and the conference paper if you find them helpful for your research. Cheers.
 
 ```latex
-@inproceedings{huang2024multi,
-  title={Multi-Stage Learning for Radar Pulse Activity Segmentation},
-  author={Huang, Zi and Pemasiri, Akila and Denman, Simon and Fookes, Clinton and Martin, Terrence},
-  booktitle={ICASSP 2024-2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
-  pages={7340--7344},
-  year={2024},
-  organization={IEEE}
-}
-```
-
-💡 Our previous work may also be of interest to you:
-
-```latex
-@INPROCEEDINGS{10193318,
-  author={Huang, Zi and Pemasiri, Akila and Denman, Simon and Fookes, Clinton and Martin, Terrence},
-  booktitle={2023 IEEE International Conference on Acoustics, Speech, and Signal Processing Workshops (ICASSPW)}, 
-  title={Multi-Task Learning For Radar Signal Characterisation}, 
-  year={2023},
-  volume={},
-  number={},
-  pages={1-5},
-  doi={10.1109/ICASSPW59220.2023.10193318}
+@inproceedings{huang2024radseg,
+  author    = {Zi Huang and Akila Pemasiri and Simon Denman and Clinton Fookes and Terrence Martin},
+  title     = {Multi-Stage Learning for Radar Pulse Activity Segmentation},
+  booktitle = {Proceedings of the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year      = {2024},
+  pages     = {7340--7344},
+  doi       = {10.1109/ICASSP48485.2024.10445810},
+  keywords  = {Radar, Speech recognition, Radar countermeasures, Radio communication countermeasures, Task analysis, Speech processing, Signal to noise ratio, Multi-stage learning, Activity segmentation, Radio signal recognition, Deinterleaving, Radar dataset}
 }
 ```
