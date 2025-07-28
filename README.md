@@ -59,11 +59,11 @@ Please refer to our [conference paper](https://ieeexplore.ieee.org/document/1044
 
 ### RadSeg Frame
 
-Visualisation of a frame from RadSeg:
+Visualisation of a frame containing 3 radar signals from RadSeg:
 
 ![RadSeg Signal](Sample_Signal.png)
 
-Example of the corresponding segmentation mask:
+Example of the corresponding interleaved segmentation masks:
 
 ![RadSeg Mask](Sample_Mask.png)
 
