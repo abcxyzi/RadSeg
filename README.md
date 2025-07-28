@@ -26,7 +26,7 @@ RadSeg contains pulsed radar signals at varying signal-to-noise ratios (SNRs) be
 - `RadSeg-Valadation` contains 10,000 radar signals for model validation; and
 - `RadSeg-Test` contains 10,000 radar signals held out for testing.
 
-This dataset comprises a total of 5 radar signal types, which include: 
+⚙️ This dataset comprises a total of 5 radar signal types, which include: 
 - Barker codes, up to a code length of 13;
 - Polyphase Barker codes, up to a code length of 13;
 - Frank codes, up to a code length of 16;
@@ -50,12 +50,22 @@ seg_classes = {
 }
 ```
 
-Additional dataset characteristics:
+⚙️ Additional dataset characteristics:
 - The sampling rate used in RadSeg is 3.2 MHz. 
 - Each radar signal contains 32,768 complex, baseband IQ samples. Note, we use a subdivision of the total available samples in our ICASSP paper as part of our data augmentation workflow.
 - Annotations are provided as channel-wise binary masks where each channel corresponds to a signal type.
 
 Please refer to our [conference paper](https://ieeexplore.ieee.org/document/10445810) for additional details on RadSeg.
+
+### RadSeg Frame
+
+Visualisation of a frame from RadSeg:
+
+![RadSeg Signal](Sample_Signal.png)
+
+Example of the corresponding segmentation mask:
+
+![RadSeg Mask](Sample_Mask.png)
 
 ## RadSeg Dataloader
 
@@ -145,7 +155,7 @@ Note, due to its large file size, RadSeg has been compressed and split into mult
 - `RadSeg_Val` contains 5 `RadSegVal.tar.part-*` files
 - `RadSeg_Test` contains 5 `RadSegTest.tar.part-*` files
 
-The train, validation, and test sets each contain three `HDF5` files:
+⚙️ The train, validation, and test sets each contain three `HDF5` files:
 
 1. `radseg_iq.hdf5` contains the raw I/Q data
 2. `radseg_labels.hdf5` contains the segmentation masks
